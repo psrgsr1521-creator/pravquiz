@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConEco</title>
+    <link rel="stylesheet" href="Style.css?v=2">
+    <script src="Script.js" defer></script>
+
+</head>
+
+<body class="theme-morning">
+    <button id="theme-toggle" class="theme-toggle-btn" onclick="toggleTheme()">🌙</button>
+
+    <div class="uiverse-morning-sky" id="morning-sky">
+        <div class="sun"></div>
+        <div class="clouds">
+            <div class="cloud cloud-1"></div>
+            <div class="cloud cloud-2"></div>
+            <div class="cloud cloud-3"></div>
+        </div>
+        <div class="birds">
+            <div class="bird bird-1"></div>
+            <div class="bird bird-2"></div>
+            <div class="bird bird-3"></div>
+        </div>
+    </div>
+
+    <div class="uiverse-midnight-sky" id="night-sky">
+        <div class="sky-canvas">
+            <div class="stars stars-1"></div>
+            <div class="stars stars-2"></div>
+            <div class="stars stars-3"></div>
+
+            <div class="meteor m1"></div>
+            <div class="meteor m2"></div>
+            <div class="meteor m3"></div>
+
+            <div class="moon"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1> NPTEL Quiz On</h1>
+            <h2>Introductory course real analysis</h2>
+            <p>Test Your Knowledge</p>
+        </div>
+
+        <!-- Start Screen -->
+        <div class="start-screen" id="startScreen">
+            <h2>Welcome to the Quiz!</h2>
+            <div class="quiz-info">
+                <p><strong>Total Questions:</strong> 120</p>
+                <p><strong>Time Limit:</strong> No time limit</p>
+                <p><strong>Instructions:</strong></p>
+                <p>• Select one answer for each question</p>
+                <p>• You can review your answers before submitting</p>
+                <p>• Click "Next" to move to the next question</p>
+                <p>• Your score will be displayed at the end</p>
+            </div>
+            <div class="options-settings" style="margin-bottom: 20px;">
+                <label
+                    style="cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; color: inherit; font-size: 1.1em;">
+                    <input type="checkbox" id="shuffleOptionsCheck" checked
+                        style="width: 18px; height: 18px; cursor: pointer;">
+                    Shuffle Options within Questions
+                </label>
+            </div>
+            <div class="quiz-mode-buttons">
+                <button class="mode-btn" onclick="startQuiz(false)"> Start Normal Quiz</button>
+                <button class="mode-btn shuffle" onclick="startQuiz(true)"> Start Shuffled Quiz</button>
+            </div>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div class="quiz-screen" id="quizScreen">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar"></div>
+            </div>
+
+            <div class="question-info">
+                <span id="questionNumber">Question 1 of 10</span>
+                <span id="score">Score: 0</span>
+            </div>
+
+            <div class="question-container">
+                <div class="question" id="questionText"></div>
+                <div class="options" id="optionsContainer"></div>
+                <div class="feedback-container" id="feedbackContainer">
+                    <div class="feedback-message" id="feedbackMessage"></div>
+                    <button class="show-answer-btn" id="showAnswerBtn" onclick="showCorrectAnswer()">Show Correct
+                        Answer</button>
+                    <div class="correct-answer-text" id="correctAnswerText"></div>
+                </div>
+            </div>
+
+            <div class="navigation" style="justify-content: space-between; display: flex;">
+                <button class="btn-secondary" onclick="previousQuestion()" id="prevBtn">Previous</button>
+                <button onclick="submitAnswer()" id="submitBtn" style="display: none;">Submit Answer</button>
+                <button onclick="nextQuestion()" id="nextBtn">Next</button>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div class="results-screen" id="resultsScreen">
+            <h2>Quiz Completed! 🎉</h2>
+            <div class="score-circle">
+                <div class="score" id="finalScore">0</div>
+                <div class="total" id="totalQuestions">out of 120</div>
+            </div>
+            <div class="results-message" id="resultsMessage"></div>
+            <div class="results-details">
+                <p><strong>Correct Answers:</strong> <span id="correctCount">0</span></p>
+                <p><strong>Incorrect Answers:</strong> <span id="incorrectCount">0</span></p>
+                <p><strong>Percentage:</strong> <span id="percentage">0</span>%</p>
+            </div>
+            <button onclick="restartQuiz()">Restart Quiz</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
